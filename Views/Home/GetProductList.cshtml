@@ -1,0 +1,38 @@
+@model List<Product>
+
+
+   
+        <div class="titleContanier">
+                 <h1 class="subTtitle">Lista de Produtos</h1>
+        </div>
+       
+
+        <table class="table">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">nome do produto</th>
+                    <th scope="col">categoria</th>
+                    <th scope="col">preço</th>
+                    <th scope="col">Atualizar Produto</th>
+                    <th scope="col">Deletar Produtor</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Price</td>
+                        <td>@item.Category</td>
+                        <td><a asp-action="UpdateProductPage" asp-controller="Home" asp-route-id="@item.Id">atualizar</a></td>
+                        <td><a asp-action="DeleteProductPage" asp-controller="Home" asp-route-id="@item.Id">deletar</a></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    }
+    
+

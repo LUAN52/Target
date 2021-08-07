@@ -1,0 +1,39 @@
+@if (User.Identity.IsAuthenticated)
+{
+
+    <div class="formCont">
+        <h1>Buscar Produto</h1>
+        <form class="form" asp-action="GetProductList" asp-controller="home">
+            <select id="search-type" class="form-select" aria-label="Default select example" name="searchType">
+                <option selected>selecione o tipo de busca</option>
+                <option value="1">nome</option>
+                <option value="2">categoria</option>
+            </select>
+            <div class="form-group">
+                <label for="search">Busca</label>
+                <input id="searchId" type="text" class="form-control" placeholder="digite o nome ou categoria para buscar"
+                name="text">
+                <span id="searchErrorId" class="text-danger"></span>
+            </div>
+
+            <div class="buttonContainer">
+                <div>
+                    <button id="buttonT" type="submit" class="btn btn-primary">Buscar</button>
+                    <button class="btn btn-danger" asp-action="index" asp-controller="Home">Cadastrar-se</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="~/js/getProduct.js"></script>
+}
+else
+{
+
+
+    <div class="loginContainer">
+        <h2>Necessário realizar login</h2>
+        <a asp-action="login" asp-controller="Account" class="btn btn-primary">Logar-se</a>
+    </div>
+
+
+}
