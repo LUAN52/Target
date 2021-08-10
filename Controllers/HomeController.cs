@@ -100,7 +100,7 @@ namespace c_Teste.Controllers
             }
             var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
             var priceD = decimal.Parse(price);
-            var prod = new Product(name, category, priceD);
+            var prod = new Product(name, category, priceD,currentUser);
 
             prod.Client = currentUser;
 
@@ -175,29 +175,6 @@ namespace c_Teste.Controllers
         public IActionResult GetProductPage()
         {
             return View();
-        }
-
-        [HttpGet]
-        public IActionResult GetProductByName(string searchType)
-        {
-            var idClient = _userManager.GetUserId(HttpContext.User);
-            var prodSeacth = _rProduct.GetByIdClient(idClient).Where(p => p.Name == searchType).ToList();
-
-
-            return RedirectToAction("GetProductList", "Home", prodSeacth);
-        }
-
-        [HttpGet]
-        public IActionResult GetProductByCategory(string text, string searchType)
-        {
-            if (searchType == "1")
-            {
-
-            }
-            var idClient = _userManager.GetUserId(HttpContext.User);
-            var prodSeacth = _rProduct.GetByIdClient(idClient).Where(p => p.Category == searchType).ToList();
-
-            return RedirectToAction("GetProductList", "Home", prodSeacth);
         }
 
         public IActionResult GetProductList(string searchType, string text)

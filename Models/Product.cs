@@ -8,12 +8,16 @@ namespace Tarefa.Models
 {
     public class Product
     {
-        
-        public Product(string name, string Category, decimal price)
+        public Product()
+        {
+
+        }
+        public Product(string name, string Category, decimal price, Client client)
         {
             this.Name = name;
             this.Category = Category;
             this.Price = price;
+            this.Client = client;
             
 
         }
@@ -21,9 +25,13 @@ namespace Tarefa.Models
         public int Id { get; private set; }
         
         
+        [Required(ErrorMessage =" campo nome é obrigatorio")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "campo categoria é obrigatorio")]
         public string Category { get; set; }
 
+        [Required(ErrorMessage = "campo preço é obrigatorio")]
         public decimal Price { get; set; }
 
         [Required]
