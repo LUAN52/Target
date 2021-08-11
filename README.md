@@ -1,6 +1,6 @@
-<## Projeto crud aspnet
+## Projeto crud aspnet
  
-o projeto se trata se um simples crud produtos 
+o projeto se trata de um simples crud produtos 
 com intuito de treinar as tecnolgias abaixo.
  
  
