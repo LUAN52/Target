@@ -186,3 +186,33 @@ h1{
 {
   display: none;
 }
+
+
+.errorRegister
+{
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(230, 39, 39, 0.897);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  align-items: center;
+
+}
+
+.errorRegisterContainer > a
+{
+  margin-top: 20px;
+
+}
+
+
+.errorRegisterContainer
+{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

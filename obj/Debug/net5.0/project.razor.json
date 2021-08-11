@@ -15619,11 +15619,6 @@
   "RootNamespace": "c_Teste",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Luan Figueiredo\\Desktop\\repositorios\\clones\\Target\\Views\\Home\\ErrorPage.cshtml",
-      "TargetPath": "Views\\Home\\ErrorPage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Luan Figueiredo\\Desktop\\repositorios\\clones\\Target\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -15674,11 +15669,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Luan Figueiredo\\Desktop\\repositorios\\clones\\Target\\Views\\Home\\RegisterError.cshtml",
-      "TargetPath": "Views\\Home\\RegisterError.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Luan Figueiredo\\Desktop\\repositorios\\clones\\Target\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -15691,6 +15681,11 @@
     {
       "FilePath": "c:\\Users\\Luan Figueiredo\\Desktop\\repositorios\\clones\\Target\\Views\\Account\\LoginPage.cshtml",
       "TargetPath": "Views\\Account\\LoginPage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Luan Figueiredo\\Desktop\\repositorios\\clones\\Target\\Views\\Account\\RegisterError.cshtml",
+      "TargetPath": "Views\\Account\\RegisterError.cshtml",
       "FileKind": "mvc"
     }
   ],

@@ -56,13 +56,13 @@ namespace Tarefa.Controllers
                 return RedirectToAction("LoginPage","Account");
             }
 
-            return RedirectToAction("ErrorPage","Home");
+            return RedirectToAction("ErrorRegister","Account");
 
         }
 
 
 
-        public IActionResult ErrorPage()
+        public IActionResult RegisterError()
         {
             return View();
         }

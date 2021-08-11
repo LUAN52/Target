@@ -81,5 +81,4 @@ C:\Users\Luan Figueiredo\Desktop\repositorios\clones\Target\obj\Debug\net5.0\c#T
 C:\Users\Luan Figueiredo\Desktop\repositorios\clones\Target\obj\Debug\net5.0\c#Teste.genruntimeconfig.cache
 C:\Users\Luan Figueiredo\Desktop\repositorios\clones\Target\obj\Debug\net5.0\Razor\Views\Account\LoginPage.cshtml.g.cs
 C:\Users\Luan Figueiredo\Desktop\repositorios\clones\Target\obj\Debug\net5.0\Razor\Views\Home\CreateProduct.cshtml.g.cs
-C:\Users\Luan Figueiredo\Desktop\repositorios\clones\Target\obj\Debug\net5.0\Razor\Views\Home\RegisterError.cshtml.g.cs
-C:\Users\Luan Figueiredo\Desktop\repositorios\clones\Target\obj\Debug\net5.0\Razor\Views\Home\ErrorPage.cshtml.g.cs
+C:\Users\Luan Figueiredo\Desktop\repositorios\clones\Target\obj\Debug\net5.0\Razor\Views\Account\RegisterError.cshtml.g.cs
