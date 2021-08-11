@@ -1,0 +1,56 @@
+@model Product
+
+@{
+    if(User.Identity.IsAuthenticated)
+    {
+                <div class="formCont">
+            <h1>cadastro de produto</h1>
+            <form  asp-action= "AddProduct" asp-controller="Home" id="formi" class="form" method="POST">
+                <div class="form-group">
+                    <label asp-for="Name" for="productName">Nome</label>
+                    <input asp-for="Name" id="nameId" type="text" class="form-control" placeholder="digite seu nome">
+                    <span asp-validation-for ="Name" id="nameErrorId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Category" >Categoria</label>
+                    <input  asp-for="Category"type="text" class="form-control" id="emailId" placeholder="email">
+                    <span asp-validation-for="Category" id="emailErrorId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" for="exampleInputPassword1">Preço</label>
+                    <input asp-for="Price" type="number" class="form-control" id="passwordId" placeholder="senha">
+                    <span asp-validation-for="Price" id="passwordErrorId" class="text-danger"></span>
+                </div>
+                <div class="buttonContainer">
+                    <div>
+                        <button id="registerId" type="submit" class="btn btn-primary">cadastrar</button>
+                        <button  asp-action ="Index" asp-controller="Home"id="cancelarId"  class="btn btn-danger">Cancelar</button>
+                    </div>
+                </div>
+                
+            </form>
+
+        </div>
+    }
+    else
+    {
+       
+        <div class="loginContainer">
+            <h2>Necessário realizar login</h2>
+            <a  asp-action="LoginPage" asp-controller="Account" class="btn btn-primary">Logar-se</a>
+        </div>
+    }
+}
+
+
+<script src="~/js/register.js">
+    
+</script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+

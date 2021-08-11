@@ -24,13 +24,13 @@ namespace Tarefa.Models
 
         public int Id { get; private set; }
         
-        
-        [Required(ErrorMessage =" campo nome é obrigatorio")]
+        [Required(ErrorMessage = "campo nome é obrigatorio")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "campo categoria é obrigatorio")]
         public string Category { get; set; }
 
+        [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "campo preço é obrigatorio")]
         public decimal Price { get; set; }
 

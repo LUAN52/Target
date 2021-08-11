@@ -24,7 +24,7 @@ button.addEventListener("click", function (event) {
 
 async function login() {
 
-    await $.post(loginUrl, { userName: nameForm.value, password: passwordForm.value }, function (rest) {
+    await $.get(loginUrl,{userName: nameForm.value, password: passwordForm.value }, function (rest) {
         console.log(rest);
 
 

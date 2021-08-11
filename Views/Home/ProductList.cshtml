@@ -9,22 +9,23 @@
             <table class="table">
                 <thead>
                     <tr>
-
+                        <th scope="col">nome do cliente</th>
                         <th scope="col">nome do produto</th>
                         <th scope="col">categoria</th>
                         <th scope="col">preço</th>
                         <th scope="col">Atualizar Produto</th>
                         <th scope="col">Deletar Produtor</th>
-
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
+                             
+                            <td>@User.Identity.Name</td>
                             <td>@item.Name</td>
-                            <td>@item.Price</td>
                             <td>@item.Category</td>
+                            <td>@item.Price</td>
                             <td><a asp-action="UpdateProductPage" asp-controller="Home" asp-route-id="@item.Id">atualizar</a></td>
                             <td><a asp-action="DeleteProductPage" asp-controller="Home" asp-route-id="@item.Id">deletar</a></td>
                         </tr>
@@ -39,7 +40,7 @@
     {
         <div class="loginContainer">
             <h2>Necessário realizar login</h2>
-            <a  asp-action="Login" asp-controller="Account" class="btn btn-primary">Logar-se</a>
+            <a  asp-action="LoginPage" asp-controller="Account" class="btn btn-primary">Logar-se</a>
         </div>
     }
 }

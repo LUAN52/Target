@@ -1,36 +1,25 @@
-@model Product
+@model ProductSearch
 
 @if (User.Identity.IsAuthenticated)
 {
 
     <div class="formCont">
         <h1>Buscar Produto</h1>
-        <form class="form" asp-action="GetProductList" asp-controller="home">
-            <select id="typeId" class="form-select" aria-label="Default select example" name="searchType">
+        <form class="form" asp-action="GetProductList" asp-controller="Home" method="GET">
+            <select id="typeId" class="form-select" aria-label="Default select example" asp-for="SearchType">
                 <option selected>selecione o tipo de busca</option>
                 <option value="1">nome</option>
                 <option value="2">categoria</option>
             </select>
-            <div id="nameId" class="form-group searchForm">
+            <div id="nameId" class="form-group">
                 <label >Busca</label>
-                <input asp-for="Name"  type="text" class="form-control" placeholder="digite o nome ou categoria para buscar"
-              >
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <input asp-for="SearchText"  type="text" class="form-control" placeholder="digite o nome ou categoria para buscar">
+                <span asp-validation-for="SearchText" class="text-danger"></span>
             </div>
-             <div class="form-group searchForm">
-                <label>Busca</label>
-                <input asp-for="Category" id="CategoryId" type="text" class="form-control" placeholder="digite o nome ou categoria para buscar">
-                <span  asp-validation-for="Category"id="searchErrorId" class="text-danger"></span>
-            </div>
-                <div class="buttonContainer ">
-                <div>
-                    <button id="buttonConfId" type="button" class="btn btn-primary">Confirmar</button>
-                </div>
-            </div>
-            <div id="buttonId" class="buttonContainer searchForm">
+            <div id="buttonId" class="buttonContainer">
                 <div>
                     <button  type="submit" class="btn btn-primary">Buscar</button>
-                    <button class="btn btn-danger" asp-action="index" asp-controller="Home">Cadastrar-se</button>
+                    <button class="btn btn-danger" asp-action="index" asp-controller="Home">Home</button>
                 </div>
             </div>
         </form>
@@ -43,7 +32,7 @@ else
 
     <div class="loginContainer">
         <h2>Necessário realizar login</h2>
-        <a asp-action="login" asp-controller="Account" class="btn btn-primary">Logar-se</a>
+        <a asp-action="loginPage" asp-controller="Account" class="btn btn-primary">Logar-se</a>
     </div>
 
 
@@ -53,4 +42,4 @@ else
 {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");};
 }
-    <script src="~/js/getProduct.js"></script>
+    

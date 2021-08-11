@@ -26,7 +26,7 @@ namespace Tarefa.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult LoginPage()
         {
             return View();
         }
@@ -36,48 +36,38 @@ namespace Tarefa.Controllers
         {
             return View();
         }
-
-
         [HttpPost]
-        public async Task<bool> Register(string name, string email, string password)
-        {
-            if ((string.IsNullOrWhiteSpace(email)) || (string.IsNullOrWhiteSpace(name)))
+        public async Task<IActionResult> Register(string userName, string email, string passwordHash)
+        {   
+            
+            if ((string.IsNullOrWhiteSpace(email)) || (string.IsNullOrWhiteSpace(userName)))
             {
-
-                return false;
+               return RedirectToAction("ErrorPage","Home");
             }
 
-            var client = new Client(name);
+            var client = new Client(userName);
             client.Email = email;
-           
 
-            var result = await this._user.CreateAsync(client, password);
+            var result = await this._user.CreateAsync(client, passwordHash);
 
             if (result.Succeeded)
             {
 
-                return true;
+                return RedirectToAction("LoginPage","Account");
             }
 
-            return false;
+            return RedirectToAction("ErrorPage","Home");
 
         }
 
 
 
-        public bool TestEmail(string email)
+        public IActionResult ErrorPage()
         {
-            var user = _rClient.Query(i => i.Email == email).FirstOrDefault();
-
-            if (user != null)
-            {
-                return true;
-            }
-
-            return false;
+            return View();
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<bool> Login(string userName, string password)
         {
             var user = await this._user.FindByNameAsync(userName);
@@ -105,7 +95,7 @@ namespace Tarefa.Controllers
         {
             await _signInManager.SignOutAsync();
 
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("LoginPage", "Account");
         }
     }
 }

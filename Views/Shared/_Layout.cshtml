@@ -14,20 +14,26 @@
                         Target Work
                     </h1>
                 </div>
-
-            
+  
             <nav class="navContainer">
                 <div class="navLinkC">  
-                    <a   class="navLink" >home</a>  
                     <a class="navLink" asp-action="Register" asp-controller="Account">Cadastro</a>
                     <a asp-action="ProductList" asp-controller="Home" class="navLink" >Produtos</a>
-                    <a asp-action="AddProduct" asp-controller="Home" class="navLink" >Adicionar Produto</a> 
+                    <a asp-action="CreateProduct" asp-controller="Home" class="navLink" >Adicionar Produto</a> 
                     <a asp-action="GetProductPage" asp-controller="Home" class="navLink" >Buscar Produto</a> 
                     
                 </div>
                 <div class="navLinkC loginLogoutContainer ">
-                    <a  asp-action="Login" asp-controller="Account" class="navLinkC">Logar</a>
-                    <a asp-action="Logout" asp-controller="Account" class="navLinkC">Sair</a>
+                    @{if(!User.Identity.IsAuthenticated)
+                    {
+                          <a  asp-action="LoginPage" asp-controller="Account" class="navLinkC">Logar</a>
+                          
+                    }
+                    else
+                    {   
+                        <a asp-action="Logout" asp-controller="Account" class="navLinkC">Sair</a>
+                    }}
+                    <a  asp-action="Index" asp-controller="Home" class="navLinkC">Home</a>
                 </div>
             </nav>
 

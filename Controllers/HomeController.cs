@@ -6,7 +6,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using c_Teste.Models;
 using Tarefa.data;
 using Microsoft.AspNetCore.Identity;
 using Tarefa.Models;
@@ -16,6 +15,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace c_Teste.Controllers
 {
 
+    
     public class HomeController : Controller
     {
         private readonly AppDbContext _context;
@@ -41,10 +41,6 @@ namespace c_Teste.Controllers
         }
 
 
-        public IActionResult Register()
-        {
-            return View();
-        }
 
         public IActionResult Privacy()
         {
@@ -98,8 +94,11 @@ namespace c_Teste.Controllers
                 return RedirectToAction("Index", "Home");
 
             }
+            var newPrice = price.Replace(".",",");
+            System.Console.WriteLine(price);
             var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-            var priceD = decimal.Parse(price);
+            var priceD = decimal.Parse(newPrice);
+            System.Console.WriteLine(priceD);
             var prod = new Product(name, category, priceD,currentUser);
 
             prod.Client = currentUser;
@@ -116,7 +115,7 @@ namespace c_Teste.Controllers
         public IActionResult DeleteProductPage(int id)
         {
             var idClient = _userManager.GetUserId(HttpContext.User);
-            var prodDelete = _rProduct.GetByIdClient(idClient).FirstOrDefault();
+            var prodDelete = _rProduct.GetByIdClient(idClient).FirstOrDefault(e=>e.Id==id);
 
 
             return View(prodDelete);
@@ -172,12 +171,26 @@ namespace c_Teste.Controllers
         }
 
 
+         public IActionResult EmailValidation(string email)
+        {
+            var user = _rClient.Query(i => i.Email == email).FirstOrDefault();
+
+            if (user != null)
+            {
+                 return Json(false);
+            }
+
+            return Json(true);
+        }
+
+
         public IActionResult GetProductPage()
         {
             return View();
         }
 
-        public IActionResult GetProductList(string searchType, string text)
+        [HttpGet]
+        public IActionResult GetProductList(string searchType, string searchtext)
 
         {   
             var idClient = _userManager.GetUserId(HttpContext.User);
@@ -186,14 +199,32 @@ namespace c_Teste.Controllers
             if (searchType == "1")
             {
                
-               prodSeacth = _rProduct.GetByIdClient(idClient).Where(p => p.Name == text).ToList();
+               prodSeacth = _rProduct.GetByIdClient(idClient).Where(p => p.Name == searchtext).ToList();
             }
             else
             {
-                prodSeacth = _rProduct.GetByIdClient(idClient).Where(p => p.Category == text).ToList();
+                prodSeacth = _rProduct.GetByIdClient(idClient).Where(p => p.Category == searchtext).ToList();
             }
 
-            return View(prodSeacth);
+            return RedirectToAction("ProductList","Home",prodSeacth);
+        }
+
+
+        public IActionResult CreateProduct()
+        {
+            return View();
+        }
+
+        public IActionResult NameValidation(string userName)
+        {
+            var name = _rClient.Query(ob=>ob.UserName==userName).FirstOrDefault();
+
+            if(name!=null)
+            {
+                return Json(false);
+            }
+
+            return Json(true);
         }
     }
 }

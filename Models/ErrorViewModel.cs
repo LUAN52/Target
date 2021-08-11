@@ -1,6 +1,6 @@
 using System;
 
-namespace c_Teste.Models
+namespace Tarefa.Models
 {
     public class ErrorViewModel
     {
