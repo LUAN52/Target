@@ -8,6 +8,7 @@ namespace Tarefa.Models
         [Required(ErrorMessage = "Digite um termo para buscar")]
         public string SearchText { get; set; }
 
+        [Required(ErrorMessage = "Selecione um tipo de busca")]
         public string SearchType{ get; set; }
         
         

@@ -15644,6 +15644,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Luan Figueiredo\\Desktop\\repositorios\\clones\\Target\\Views\\Home\\GetProductList.cshtml",
+      "TargetPath": "Views\\Home\\GetProductList.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Luan Figueiredo\\Desktop\\repositorios\\clones\\Target\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"

@@ -11,6 +11,7 @@
                 <option value="1">nome</option>
                 <option value="2">categoria</option>
             </select>
+            <span asp-validation-for="SearchType" class="text-danger"></span>
             <div id="nameId" class="form-group">
                 <label >Busca</label>
                 <input asp-for="SearchText"  type="text" class="form-control" placeholder="digite o nome ou categoria para buscar">

@@ -34,6 +34,7 @@ namespace Tarefa.Models
         public override string UserName { get => base.UserName; set => base.UserName = value; }
         
         [StringLength(256,MinimumLength =6,  ErrorMessage = "dever ao minimo 6 carateres")]
+        [Required(ErrorMessage ="A senha é obrigatória")]
         public override string PasswordHash {get=>base.PasswordHash;set=>base.PasswordHash=value;}
         
         

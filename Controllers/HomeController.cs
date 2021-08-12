@@ -196,6 +196,7 @@ namespace c_Teste.Controllers
             var idClient = _userManager.GetUserId(HttpContext.User);
             List<Product> prodSeacth ;
 
+           
             if (searchType == "1")
             {
                
@@ -206,7 +207,7 @@ namespace c_Teste.Controllers
                 prodSeacth = _rProduct.GetByIdClient(idClient).Where(p => p.Category == searchtext).ToList();
             }
 
-            return RedirectToAction("ProductList","Home",prodSeacth);
+            return View(prodSeacth);
         }
 
 
