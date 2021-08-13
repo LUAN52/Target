@@ -5,11 +5,8 @@ com intuito de treinar as tecnolgias abaixo.
  
  
 <<<<<<< HEAD
-## Technologias
+## Tecnologias
 =======
-
- 
-aqui as tecnologias utilizadas
  
 * Aspnet mvc  
 * Entity framework
